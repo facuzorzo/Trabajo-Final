@@ -11,3 +11,7 @@ fetch("./database.json")
         `
     }
 })
+const carritoCargar = document.getElementById("btn-comprar")
+carritoCargar.addEventListener("click", () =>{
+    Swal.fire('Añadiste este producto al carrito de compras')
+})
