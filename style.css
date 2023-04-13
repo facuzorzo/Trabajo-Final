@@ -38,6 +38,14 @@ nav{
 nav a{
     color: #F5F5F5;
 }
+.bi-cart-plus{
+    display: none;
+} 
+
+
+.log{
+    width: 280px;
+}
 .log:hover{              
     background-color:#F5F5F5;
     color:#1B1B1D;
@@ -126,14 +134,13 @@ ul{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 2.5rem;
     background-color: white;
     width: 30rem;
     height: 40rem;
     border-radius: 10px;
+    text-align: center;
 } 
 .phone:hover{
-    cursor: pointer;
     box-shadow: 2px 2px 0.2px #1B1B1D ;
     transition: .2s ease-in-out;
 }
@@ -159,8 +166,11 @@ h2{
     background-color: rgb(112, 105, 105);
     color: white;
     border-radius: 7px;
+    
 }
-
+.btn-comprar:hover{
+    cursor: pointer;
+}
 footer {
     display: flex;
     justify-content: space-between;

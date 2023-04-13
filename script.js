@@ -11,16 +11,43 @@ fetch("./database.json")
         </div>
         <h2>$${producto.price}</h2>
         <h3>Hasta 12 cuotas sin interes</h3>
-        <p>${producto.name}${producto.modelo}</p>
-        <button class="btn-comprar" id="btn-comprar">Añadir al carrito<i class="bi bi-cart4"></i></button>
+        <p>${producto.name}${" "}${producto.modelo}</p>
+        <button class="btn-comprar" id="${producto.boton}">Añadir al carrito<i class="bi bi-cart4"></i></button>
 
-       
-    </div>        `
+    </div>`
     }
+
+    const listadoCompras = []
+
+    for (const producto of data){
+        const carritoCargar = document.getElementById(producto.boton)
+        carritoCargar.addEventListener("click", () =>{
+            Swal.fire('Añadiste este producto al carrito de compras')
+            listadoCompras.push(producto.name+ " "+producto.modelo) 
+            console.log(listadoCompras)
+
+            document.getElementById("carritoVacio").style.display = 'none'
+            document.getElementById("carritoLleno").style.display = 'block'
+        })
+    }
+carritoLleno.addEventListener("click", () =>{
+    Swal.fire({
+        title: 'Are you sure?',
+        text: listadoCompras,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      }) 
+})
 })
 
-
-const carritoCargar = document.getElementById("btn-comprar")
-carritoCargar.addEventListener("click", () =>{
-    Swal.fire('Añadiste este producto al carrito de compras')
-})
