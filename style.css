@@ -14,7 +14,7 @@ header{
     font-size: 80px;
     height: 12rem;
     width: 100%;
-    gap: 20rem;
+    gap: 20vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,8 +23,9 @@ header{
     padding: 2vh 4vw;
 }
 h1{
-    font-size: 80px;
+    font-size: 70px;
     display: flex;
+    
 }
 
 nav{
@@ -38,12 +39,22 @@ nav{
 nav a{
     color: #F5F5F5;
 }
-.bi-cart-plus{
+.Carrito{
+    width: 70px;
+    height: 70px;
+    display: flex;
+}
+.btn-pagar{
     display: none;
 } 
+.btn-bag-fill{
+    width: auto;
+    background-color: #1B1B1D;
+    border: none;
+    display: none;
+}
 
-
-.log{
+/* .log{
     width: 280px;
 }
 .log:hover{              
@@ -54,7 +65,7 @@ nav a{
 }
 a:hover{
     color: black;
-}
+} */
 
 header i{
     background-color: #1B1B1D;

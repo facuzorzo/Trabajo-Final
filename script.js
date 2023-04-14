@@ -1,10 +1,10 @@
 const contenedor = document.getElementById("contenedor")
 fetch("./database.json")
-.then(Response => Response.json())
+  .then(Response => Response.json())
 
-.then(data =>{
+  .then(data => {
     for (const producto of data) {
-        contenedor.innerHTML += `
+      contenedor.innerHTML += `
     <div class="phone">
         <div class="phoneConteiner">
         <img class="imgPhone" src="${producto.imagen}"/>
@@ -19,35 +19,37 @@ fetch("./database.json")
 
     const listadoCompras = []
 
-    for (const producto of data){
-        const carritoCargar = document.getElementById(producto.boton)
-        carritoCargar.addEventListener("click", () =>{
-            Swal.fire('Añadiste este producto al carrito de compras')
-            listadoCompras.push(producto.name+ " "+producto.modelo) 
-            console.log(listadoCompras)
+    for (const producto of data) {
+      const carritoCargar = document.getElementById(producto.boton)
+      carritoCargar.addEventListener("click", () => {
+        Swal.fire('Añadiste este producto al carrito de compras')
+        listadoCompras.push(producto.name + " " + producto.modelo)
+        console.log(listadoCompras)
 
-            document.getElementById("carritoVacio").style.display = 'none'
-            document.getElementById("carritoLleno").style.display = 'block'
-        })
+        document.getElementById("carritoVacio").style.display = 'none'
+        document.getElementById("btnBagFill").style.display = 'block'
+
+      })
     }
-carritoLleno.addEventListener("click", () =>{
-    Swal.fire({
-        title: 'Are you sure?',
+    carritoLleno.addEventListener("click", () => {
+      Swal.fire({
+        icon: 'question',
+        title: 'Desea comprar estos Productos?',
         text: listadoCompras,
-        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, pagar',
+        cancelButtonText: 'Seguir mirando'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
+            'Su pago fue aceptado con éxito',
+            'Muchas gracias por su compra.',
             'success'
           )
         }
-      }) 
-})
-})
+      })
+    })
+  })
 
